@@ -11,10 +11,10 @@
   <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
   <!-- TODO #1 - Use a loop to display job results in a table. -->
-  <div th:each="job : ${jobs}" class="job-listing">
+  <div th:fragment = "job-listing" >
     <!-- chapter 13 example: multip[le headings, ordered lists, and item names??? //add the css class job listing TH-->
     <!-- makes the job details show when you click the link-->
-    <table class="table">
+    <table class="job-listing" th:each="job : ${jobs}">
       <tr>
         <th>ID</th>
         <td th:text="${job.id}"></td>
@@ -36,7 +36,7 @@
         <td th:text="${job.positionType.value}"></td>
       </tr>
       <tr>
-        <th>Core Competency</th>
+        <th>Skill</th>
         <td th:text="${job.coreCompetency.value}"></td>
       </tr>
     </table>
